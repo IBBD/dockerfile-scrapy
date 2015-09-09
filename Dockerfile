@@ -7,7 +7,7 @@
 #
 
 # Pull base image.
-FROM python:2.7
+FROM python:2
 
 MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 
@@ -17,15 +17,17 @@ MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 # install scrapy
 RUN pip install scrapy
 
+# 代码目录
+RUN mkdir -p /var/www
+
 # Define working directory.
-WORKDIR /etc/nginx
+WORKDIR /var/www
 
 # 解决时区问题
-env TZ "Asia/Shanghai"
+ENV TZ "Asia/Shanghai"
 
 # Define default command.
-# 加上这个会启动不了
-#CMD ["nginx"]
+#CMD ["python2"]
 
 # Expose ports.
 
