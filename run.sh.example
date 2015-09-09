@@ -38,7 +38,7 @@ fi
 docker run -it --rm --name ibbd-$name \
     -v "$PWD":/var/www \
     ibbd/scrapy \
-    python $1
+    scrapy $1
 
 docker ps
 
