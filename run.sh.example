@@ -32,8 +32,8 @@ then
     exit 1
 fi
 
-docker stop ibbd-$name 
-docker rm ibbd-$name 
+#docker stop ibbd-$name 
+#docker rm ibbd-$name 
 
 docker run -it --rm --name ibbd-$name \
     -v "$PWD":/var/www \
