@@ -36,7 +36,7 @@ fi
 #docker rm ibbd-$name 
 
 docker run -it --rm --name ibbd-$name \
-    -v "$PWD":/var/www \
+    -v "$PWD":/home/wwwroot/default/ibbd_scrapy/ \
     ibbd/scrapy \
     scrapy $*
 
