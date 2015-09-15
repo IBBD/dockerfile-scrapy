@@ -2,12 +2,7 @@
 # 
 # 运行：
 # cp ./run.sh.example ./run.sh
-# # cd到项目目录
-# cd /path/to/project/
-# # index.py是需要python执行的程序
-# sudo /path/to/run.sh index.py
-# 
-# 注意：运行时会把当前目录映射成工作目录
+# sudo ./run.sh
 # 
 
 #-----------------------------------
@@ -15,10 +10,10 @@
 #-----------------------------------
 
 # 代码目录
-#code_path=/var/www
+code_path=/var/www
 
 # 日志目录
-#logs_path=/var/log/scrapy
+logs_path=/var/log/scrapy
 
 #-----------------------------------
 # ----- 配置目录  END --------------
@@ -32,13 +27,13 @@ then
     exit 1
 fi
 
-#docker stop ibbd-$name 
-#docker rm ibbd-$name 
+sudo docker stop ibbd-$name 
+sudo docker rm ibbd-$name 
 
-docker run -it --rm --name ibbd-$name \
-    -v "$PWD":/home/wwwroot/default/ibbd_scrapy/ \
-    ibbd/scrapy \
-    scrapy $*
+sudo docker run --name ibbd-$name -d \
+    -v $code_path:/var/www \
+    -v $logs_path:/var/log/scrapyd \
+    ibbd/scrapy 
 
-docker ps
+sudo docker ps
 

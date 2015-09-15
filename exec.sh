@@ -1,4 +1,8 @@
 #!/bin/bash
+# 
+# 运行具体的爬虫
+# 
 
-docker exec -ti ibbd-scrapy /bin/bash
+sudo docker exec -ti ibbd-scrapy \
+    scrapy $*
 

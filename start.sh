@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker start ibbd-scrapy
-docker ps
+sudo docker start ibbd-scrapy
+sudo docker ps
 
